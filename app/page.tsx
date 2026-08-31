@@ -1,7 +1,17 @@
-import Image from "next/image";
+import Header from "./components/Header";
+import CardGrid from "./components/CardGrid";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-   <div>Home page content</div>
+    <div className="min-h-screen bg-black text-white">
+      <Header />
+
+      <main className="mx-auto w-full max-w-[1230px] px-0 py-8">
+        <CardGrid />
+      </main>
+
+      <Footer />
+    </div>
   );
 }

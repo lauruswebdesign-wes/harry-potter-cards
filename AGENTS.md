@@ -1,9 +1,37 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# AI Agent Instructions - Harry Potter Cards Project
 
-# This is NOT the Next.js you know
+## Project Overview
+This is a Next.js class project that fetches Harry Potter characters from an API and displays them in a structured grid layout matching Figma specifications.
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+## Architectural Constraints & Structure
+*   **Component Directory**: Place components in the appropriate `app/components/` or root `components/` folder.
+*   **Header Component**: Render at the top of the application.
+*   **Footer Component**: Render at the bottom of the application.
+*   **CardGrid Component**: 
+    *   Fetches data directly from the API endpoint: `https://hp-api.onrender.com/api/characters`
+    *   Maps over the character data array and passes individual item properties to the `Card` component.
+*   **Card Component**: Renders an individual character's details based on the forthcoming Figma layout.
+*   **Page Integration**: Assemble the page inside `src/app/page.jsx` (or `app/page.jsx`) using the layout wrapper, Header, CardGrid, and Footer.
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+## Design System & Styling (Figma Spec)
 
-<!-- END:nextjs-agent-rules -->
+### Global Layout Wrapper
+*   **Max Width**: `1230px` centered on the screen.
+*   **Responsive Grid (CardGrid)**:
+    *   **Desktop**: 4 columns
+    *   **Tablet**: 2 columns
+    *   **Mobile**: 1 column
+
+### Color Palette & Typography
+*   **Page Background**: `#000000` (Black) with light text color.
+*   **Header & Footer Background**: `#20103D` with light text color.
+*   **Site Title**: Must use the `Jaro` font family.
+*   **Cards**: 
+    *   **Background**: `white`
+    *   **Text Color**: dark
+    *   **Card Headlines**: Must use `Oswald` (Bold)
+    *   **Card Body/Paragraphs**: Must use `Oswald` (Light)
+
+## Agent Behavior Rules
+*   **Strict Adherence**: Always respect the specified color hex codes, layout grid constraints, and font pairings when generating UI or Tailwind/CSS utilities.
+*   **API Management**: Ensure the fetch request handles basic loading states securely within the `CardGrid` component.
